@@ -37,7 +37,7 @@ async function runDiscoveryTask() {
         await redisClient.set('token_data', JSON.stringify(data), 'EX', 600);
 
         await redisPublisher.publish('token_updates', JSON.stringify(data));
-        console.log("Updated Redis and Published event");
+        // console.log("Updated Redis and Published event");
     } catch (e) {
         console.error("Polling error:", e);
     }
