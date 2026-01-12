@@ -50,7 +50,8 @@ async function discover(fetchOptions:FetchOptions){
     const jupiterTokens = await jupiterService.fetchToken(addresses);
     const mergedTokens = normalizeTokenData(coinGeckoTokens, jupiterTokens);
     const sortedTokens = sortTokens(mergedTokens, fetchOptions);
-    return removeDuplicateTokens(sortedTokens);
+    // console.log(sortedTokens);
+    return sortedTokens;
 }
 
 function removeDuplicateTokens(tokens: UnifiedToken[]): UnifiedToken[] {
@@ -75,7 +76,7 @@ app.get("/discover", async (req, res) => {
         return res.send(sortTokens(tokens,fetchOptions));
     }
     const sortedTokens = await discover(fetchOptions);
-    return res.send(sortedTokens);
+    return res.send(removeDuplicateTokens(sortedTokens));
     
 });
 

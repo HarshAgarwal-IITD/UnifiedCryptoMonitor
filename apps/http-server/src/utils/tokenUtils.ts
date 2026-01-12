@@ -1,7 +1,7 @@
 import { UnifiedToken} from "@repo/common";
-const cleanName = (name: string): string => {
-    return name.replace(/\s\/\s(SOL|USD|USDC|USDT)$/i, "").trim();
-};
+// const cleanName = (name: string): string => {
+//     return name.replace(/\s\/\s(SOL|USD|USDC|USDT)$/i, "").trim();
+// };
 
 export function normalizeTokenData(
     primaryTokens: UnifiedToken[], // CoinGecko (The "Ranked" List)
@@ -15,16 +15,19 @@ export function normalizeTokenData(
         const secondary = secondaryTokens[index];
 
         
-        const isMatch = secondary && primary.address === secondary.address;
+        // const isMatch = secondary && primary.address === secondary.address;
 
-        if (!isMatch) {
-            return { ...primary, source: "coin_gecko" }; 
+        // if (!isMatch) {
+        //     return { ...primary, source: "coin_gecko" }; 
+        // }
+        if(!secondary){
+            return primary;
         }
 
         return {
             // METADATA: Trust Jupiter. 
-            name: cleanName(secondary.name), 
-            symbol: secondary.symbol || primary.symbol,
+            name: secondary.name, 
+            symbol: secondary.symbol ? secondary.symbol : primary.symbol,
             address: primary.address,
 
             // PRICE & VOLUME: Trust Jupiter.
