@@ -1,5 +1,5 @@
 # SolStream 🌊
-
+#live here http://solstream.duckdns.org/
 **SolStream** is a real-time token discovery engine for the Solana ecosystem. It aggregates trending token data from **Jupiter** (for execution prices and liquidity) and **CoinGecko** (for historical context) to provide a unified, live view of market movers.
 
 ## 🚀 Key Features
