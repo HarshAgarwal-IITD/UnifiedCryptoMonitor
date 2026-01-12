@@ -1,0 +1,10 @@
+1. implement jupiter service ->done
+2. normalize data from both services ->done
+3. call api every 2 seconds ->done
+4. setup redis ->done
+5. cache data using redis ->done
+6. setup frontend ->done
+7. setup websocket for real time updates ->done
+8. setup frontend with websocket ->done
+9. move sort function to comon ->done
+10. move api keys etc , api urls to environment variables->done
